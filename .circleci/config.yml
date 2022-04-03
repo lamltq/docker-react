@@ -1,0 +1,9 @@
+sudo: required
+service:
+  - docker 
+
+before_install:
+  - docker build -t lamltq/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run lamltq/docker-react npm run test -- --coverage
